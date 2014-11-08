@@ -1,0 +1,163 @@
+[
+    {
+        "name": {
+            "common": "Australia",
+            "official": "Commonwealth of Australia",
+            "native": {
+                "common": "Australia",
+                "official": "Commonwealth of Australia"
+            }
+        },
+        "tld": [".au"],
+        "cca2": "AU",
+        "ccn3": "036",
+        "cca3": "AUS",
+        "currency": ["AUD"],
+        "callingCode": ["61"],
+        "capital": "Canberra",
+        "altSpellings": ["AU"],
+        "relevance": "1.5",
+        "region": "Oceania",
+        "subregion": "Australia and New Zealand",
+        "nativeLanguage": "eng",
+        "languages": {
+            "eng": "English"
+        },
+        "translations": {
+            "cym": "Awstralia",
+            "deu": "Australien",
+            "fra": "Australie",
+            "hrv": "Australija",
+            "ita": "Australia",
+            "jpn": "\u30aa\u30fc\u30b9\u30c8\u30e9\u30ea\u30a2",
+            "nld": "Australi\u00eb",
+            "rus": "\u0410\u0432\u0441\u0442\u0440\u0430\u043b\u0438\u044f",
+            "spa": "Australia"
+        },
+        "latlng": [-27, 133],
+        "demonym": "Australian",
+        "borders": [],
+        "area": 7692024
+    },
+    {
+        "name": {
+            "common": "France",
+            "official": "French Republic",
+            "native": {
+                "common": "France",
+                "official": "R\u00e9publique fran\u00e7aise"
+            }
+        },
+        "tld": [".fr"],
+        "cca2": "FR",
+        "ccn3": "250",
+        "cca3": "FRA",
+        "currency": ["EUR"],
+        "callingCode": ["33"],
+        "capital": "Paris",
+        "altSpellings": ["FR", "French Republic", "R\u00e9publique fran\u00e7aise"],
+        "relevance": "2.5",
+        "region": "Europe",
+        "subregion": "Western Europe",
+        "nativeLanguage": "fra",
+        "languages": {
+            "fra": "French"
+        },
+        "translations": {
+            "deu": "Frankreich",
+            "fra": "France",
+            "hrv": "Francuska",
+            "ita": "Francia",
+            "jpn": "\u30d5\u30e9\u30f3\u30b9",
+            "nld": "Frankrijk",
+            "rus": "\u0424\u0440\u0430\u043d\u0446\u0438\u044f",
+            "spa": "Francia"
+        },
+        "latlng": [46, 2],
+        "demonym": "French",
+        "borders": ["AND", "BEL", "DEU", "ITA", "LUX", "MCO", "ESP", "CHE"],
+        "area": 551695
+    },
+    {
+        "name": {
+            "common": "Italy",
+            "official": "Italian Republic",
+            "native": {
+                "common": "Italia",
+                "official": "Repubblica italiana"
+            }
+        },
+        "tld": [".it"],
+        "cca2": "IT",
+        "ccn3": "380",
+        "cca3": "ITA",
+        "currency": ["EUR"],
+        "callingCode": ["39"],
+        "capital": "Rome",
+        "altSpellings": ["IT", "Italian Republic", "Repubblica italiana"],
+        "relevance": "2",
+        "region": "Europe",
+        "subregion": "Southern Europe",
+        "nativeLanguage": "ita",
+        "languages": {
+            "ita": "Italian"
+        },
+        "translations": {
+            "deu": "Italien",
+            "fra": "Italie",
+            "hrv": "Italija",
+            "ita": "Italia",
+            "jpn": "\u30a4\u30bf\u30ea\u30a2",
+            "nld": "Itali\u00eb",
+            "rus": "\u0418\u0442\u0430\u043b\u0438\u044f",
+            "spa": "Italia"
+        },
+        "latlng": [42.83333333, 12.83333333],
+        "demonym": "Italian",
+        "borders": ["AUT", "FRA", "SMR", "SVN", "CHE", "VAT"],
+        "area": 301336
+    },
+    {
+        "name": {
+            "common": "Spain",
+            "official": "Kingdom of Spain",
+            "native": {
+                "common": "Espa\u00f1a",
+                "official": "Reino de Espa\u00f1a"
+            }
+        },
+        "tld": [".es"],
+        "cca2": "ES",
+        "ccn3": "724",
+        "cca3": "ESP",
+        "currency": ["EUR"],
+        "callingCode": ["34"],
+        "capital": "Madrid",
+        "altSpellings": ["ES", "Kingdom of Spain", "Reino de Espa\u00f1a"],
+        "relevance": "2",
+        "region": "Europe",
+        "subregion": "Southern Europe",
+        "nativeLanguage": "spa",
+        "languages": {
+            "cat": "Catalan",
+            "eus": "Basque",
+            "glg": "Galician",
+            "oci": "Occitan",
+            "spa": "Spanish"
+        },
+        "translations": {
+            "deu": "Spanien",
+            "fra": "Espagne",
+            "hrv": "\u0160panjolska",
+            "ita": "Spagna",
+            "jpn": "\u30b9\u30da\u30a4\u30f3",
+            "nld": "Spanje",
+            "rus": "\u0418\u0441\u043f\u0430\u043d\u0438\u044f",
+            "spa": "Espa\u00f1a"
+        },
+        "latlng": [40, -4],
+        "demonym": "Spanish",
+        "borders": ["AND", "FRA", "GIB", "PRT", "MAR"],
+        "area": 505992
+    }
+]
