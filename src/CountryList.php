@@ -1,7 +1,10 @@
 <?php
 namespace Nxw\CountryList;
 
-class CountryList
+use ArrayIterator;
+use IteratorAggregate;
+
+class CountryList implements IteratorAggregate
 {
     const ISO_CODE_NUMERIC = 'ccn3';
     const ISO_CODE_APLHA_2 = 'cca2';
@@ -16,6 +19,16 @@ class CountryList
      * @var array
      */
     protected $countries = [];
+
+    /**
+     * @return ArrayIterator
+     */
+    public function getIterator()
+    {
+        $this->loadCountries();
+
+        return new ArrayIterator($this->countries);
+    }
 
     /**
      * @param  mixed $value
