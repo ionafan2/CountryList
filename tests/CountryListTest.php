@@ -68,4 +68,13 @@ class CountryListTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(Country::class, $country);
         $this->assertEquals('France', $country->getCommonName());
     }
+
+    public function testFilterCountries()
+    {
+        $countryList = $this->getCountryList();
+        $this->assertCount(4, $countryList);
+
+        $countryCollection = $countryList->filterCountries('Europe', CountryList::REGION);
+        $this->assertCount(3, $countryCollection);
+    }
 }

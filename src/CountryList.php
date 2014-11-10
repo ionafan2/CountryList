@@ -1,65 +1,21 @@
 <?php
 namespace Nxw\CountryList;
 
-use ArrayIterator;
-use IteratorAggregate;
-
-class CountryList implements IteratorAggregate
+class CountryList extends CountryCollection
 {
-    const ISO_CODE_NUMERIC = 'ccn3';
-    const ISO_CODE_APLHA_2 = 'cca2';
-    const ISO_CODE_APLHA_3 = 'cca3';
-
     /**
-     * @var CountryProvider
+     * @var CountryProviderInterface
      */
     protected $provider;
 
     /**
-     * @var array
-     */
-    protected $countries = [];
-
-    /**
-     * @return ArrayIterator
+     * {@inheritdoc}
      */
     public function getIterator()
     {
         $this->loadCountries();
 
-        return new ArrayIterator($this->countries);
-    }
-
-    /**
-     * @param  mixed $value
-     * @param  string $from
-     * @return Country|null
-     */
-    public function getCountry($value, $from = self::ISO_CODE_APLHA_3)
-    {
-        $this->loadCountries();
-
-        switch ($from) {
-            case self::ISO_CODE_NUMERIC:
-                $method = 'getIsoCodeNumeric';
-                break;
-            case self::ISO_CODE_APLHA_2:
-                $method = 'getIsoCodeAlpha2';
-                break;
-            case self::ISO_CODE_APLHA_3:
-                $method = 'getIsoCodeAlpha3';
-                break;
-            default:
-                return null;
-        }
-
-        foreach ($this->countries as $country) {
-            if (method_exists($country, $method) && $country->$method() == $value) {
-                return $country;
-            }
-        }
-
-        return null;
+        return parent::getIterator();
     }
 
     private function loadCountries()
