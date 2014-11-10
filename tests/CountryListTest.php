@@ -55,7 +55,7 @@ class CountryListTest extends \PHPUnit_Framework_TestCase
     /**
      * @dataProvider getCountryFromDataProvider
      */
-    public function testGetCountryFormData($value, $from)
+    public function testGetCountryFromData($value, $from)
     {
         $countryList = $this->getCountryList();
         $country = $countryList->getCountry($value, $from);
