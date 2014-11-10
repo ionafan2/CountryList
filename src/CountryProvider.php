@@ -9,6 +9,16 @@ class CountryProvider implements CountryProviderInterface
     protected $rawDataUrl = 'https://raw.githubusercontent.com/mledoze/countries/master/dist/countries.json';
 
     /**
+     * @param  string $url
+     * @return self
+     */
+    public function setRawDataUrl($url)
+    {
+        $this->rawDataUrl = (string) $url;
+        return $this;
+    }
+
+    /**
      * @return array
      */
     public function getCountries()

@@ -4,7 +4,6 @@ namespace NxwTest\CountryList;
 use Nxw\CountryList\Country;
 use Nxw\CountryList\CountryList;
 use Nxw\CountryList\CountryProvider;
-use ReflectionClass;
 
 class CountryListTest extends \PHPUnit_Framework_TestCase
 {
@@ -12,12 +11,8 @@ class CountryListTest extends \PHPUnit_Framework_TestCase
     {
         $countryList = new CountryList();
 
-        $providerClass = new ReflectionClass('Nxw\CountryList\CountryProvider');
-        $property = $providerClass->getProperty('rawDataUrl');
-        $property->setAccessible(true);
-
         $provider = new CountryProvider();
-        $property->setValue($provider, __DIR__ . '/assets/countries.json');
+        $provider->setRawDataUrl(__DIR__ . '/assets/countries.json');
         $countryList->setProvider($provider);
 
         return $countryList;
