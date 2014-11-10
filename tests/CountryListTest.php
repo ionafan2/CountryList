@@ -1,6 +1,7 @@
 <?php
 namespace NxwTest\CountryList;
 
+use Nxw\CountryList\Country;
 use Nxw\CountryList\CountryList;
 use Nxw\CountryList\CountryProvider;
 use ReflectionClass;
@@ -22,12 +23,22 @@ class CountryListTest extends \PHPUnit_Framework_TestCase
         return $countryList;
     }
 
+    public function testCountryIterator()
+    {
+        $countryList = $this->getCountryList();
+        $this->assertCount(4, $countryList);
+
+        foreach ($countryList as $country) {
+            $this->assertInstanceOf(Country::class, $country);
+        }
+    }
+
     public function testGetCountry()
     {
         $countryList = $this->getCountryList();
         $country = $countryList->getCountry('FRA');
 
-        $this->assertInstanceOf('Nxw\CountryList\Country', $country);
+        $this->assertInstanceOf(Country::class, $country);
         $this->assertEquals('France', $country->getCommonName());
         $this->assertEquals('French Republic', $country->getOfficialName());
         $this->assertEquals('EUR', $country->getCurrency());
@@ -37,21 +48,24 @@ class CountryListTest extends \PHPUnit_Framework_TestCase
         $this->assertSame(2.0, $country->getLongitude());
     }
 
-    public function testGetCountryFormIsoCodeAlpha2()
+    public function getCountryFromDataProvider()
     {
-        $countryList = $this->getCountryList();
-        $country = $countryList->getCountry('FR', CountryList::ISO_CODE_APLHA_2);
-
-        $this->assertInstanceOf('Nxw\CountryList\Country', $country);
-        $this->assertEquals('France', $country->getCommonName());
+        return [
+            [250, CountryList::ISO_CODE_NUMERIC],
+            ['FR', CountryList::ISO_CODE_APLHA_2],
+            ['FRA', CountryList::ISO_CODE_APLHA_3],
+        ];
     }
 
-    public function testGetCountryFormIsoCodeNumeric()
+    /**
+     * @dataProvider getCountryFromDataProvider
+     */
+    public function testGetCountryFormData($value, $from)
     {
         $countryList = $this->getCountryList();
-        $country = $countryList->getCountry('250', CountryList::ISO_CODE_NUMERIC);
+        $country = $countryList->getCountry($value, $from);
 
-        $this->assertInstanceOf('Nxw\CountryList\Country', $country);
+        $this->assertInstanceOf(Country::class, $country);
         $this->assertEquals('France', $country->getCommonName());
     }
 }
