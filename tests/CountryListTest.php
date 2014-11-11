@@ -36,11 +36,29 @@ class CountryListTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf(Country::class, $country);
         $this->assertEquals('France', $country->getCommonName());
         $this->assertEquals('French Republic', $country->getOfficialName());
-        $this->assertEquals('EUR', $country->getCurrency());
+        $this->assertEquals('.fr', $country->getMainTopLevelDomain());
         $this->assertEquals('Paris', $country->getCapital());
+        $this->assertEquals(33, $country->getCallingCodes()[0]);
         $this->assertEquals('Europe', $country->getRegion());
+        $this->assertEquals('Western Europe', $country->getSubRegion());
+        $this->assertEquals('fra', $country->getNativeLanguage());
+
+        $currencies = $country->getCurrencies();
+        $this->assertInternalType('array', $currencies);
+        $this->assertCount(1, $currencies);
+        $this->assertEquals('EUR', $currencies[0]);
+
+        $languages = $country->getLanguages();
+        var_dump($languages);
+        $this->assertInternalType('array', $languages);
+        $this->assertCount(1, $languages);
+        $this->assertArrayHasKey('fra', $languages);
+        $this->assertEquals('French', $languages['fra']);
+
+        $this->assertEquals('French', $country->getDemonym());
         $this->assertSame(46.0, $country->getLatitude());
         $this->assertSame(2.0, $country->getLongitude());
+        $this->assertSame(551695, $country->getArea());
     }
 
     public function getCountryFromDataProvider()

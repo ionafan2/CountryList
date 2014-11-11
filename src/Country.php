@@ -14,9 +14,14 @@ class Country
     protected $officialName;
 
     /**
-     * @var string
+     * @var array
      */
-    protected $currency;
+    protected $topLevelDomains;
+
+    /**
+     * @var array
+     */
+    protected $currencies;
 
     /**
      * @var string
@@ -34,6 +39,11 @@ class Country
     protected $isoCodeAlpha3;
 
     /**
+     * @var array
+     */
+    protected $callingCodes;
+
+    /**
      * @var string
      */
     protected $capital;
@@ -44,6 +54,26 @@ class Country
     protected $region;
 
     /**
+     * @var string
+     */
+    protected $subRegion;
+
+    /**
+     * @var string
+     */
+    protected $nativeLanguage;
+
+    /**
+     * @var array
+     */
+    protected $languages;
+
+    /**
+     * @var string
+     */
+    protected $demonym;
+
+    /**
      * @var float
      */
     protected $latitude;
@@ -52,6 +82,11 @@ class Country
      * @var float
      */
     protected $longitude;
+
+    /**
+     * @var int
+     */
+    protected $area;
 
     /**
      * @param  string $name
@@ -90,21 +125,63 @@ class Country
     }
 
     /**
-     * @param  string $currency
+     * @param  array $domains
      * @return self
      */
-    public function setCurrency($currency)
+    public function setTopLevelDomains(array $domains)
     {
-        $this->currency = (string) $currency;
+        $this->topLevelDomains = (array) $domains;
         return $this;
     }
 
     /**
-     * @return string
+     * @return array
      */
-    public function getCurrency()
+    public function getTopLevelDomains()
     {
-        return $this->currency;
+        return $this->topLevelDomains;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getMainTopLevelDomain()
+    {
+        if (empty($this->topLevelDomains)) {
+            return null;
+        }
+
+        return $this->topLevelDomains[0];
+    }
+
+    /**
+     * @param  array $currencies
+     * @return self
+     */
+    public function setCurrencies(array $currencies)
+    {
+        $this->currencies = (array) $currencies;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCurrencies()
+    {
+        return $this->currencies;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getMainCurrency()
+    {
+        if (empty($this->currencies)) {
+            return null;
+        }
+
+        return $this->currencies[0];
     }
 
     /**
@@ -162,6 +239,24 @@ class Country
     }
 
     /**
+     * @param  array $codes
+     * @return self
+     */
+    public function setCallingCodes(array $codes)
+    {
+        $this->callingCodes = (array) $codes;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getCallingCodes()
+    {
+        return $this->callingCodes;
+    }
+
+    /**
      * @param  string $capital
      * @return self
      */
@@ -198,6 +293,78 @@ class Country
     }
 
     /**
+     * @param  string $subRegion
+     * @return self
+     */
+    public function setSubRegion($subRegion)
+    {
+        $this->subRegion = (string) $subRegion;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSubRegion()
+    {
+        return $this->subRegion;
+    }
+
+    /**
+     * @param  string $language
+     * @return self
+     */
+    public function setNativeLanguage($language)
+    {
+        $this->nativeLanguage = (string) $language;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getNativeLanguage()
+    {
+        return $this->nativeLanguage;
+    }
+
+    /**
+     * @param  array $languages
+     * @return self
+     */
+    public function setLanguages(array $languages)
+    {
+        $this->languages = (array) $languages;
+        return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
+    }
+
+    /**
+     * @param  string $demonym
+     * @return self
+     */
+    public function setDemonym($demonym)
+    {
+        $this->demonym = (string) $demonym;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDemonym()
+    {
+        return $this->demonym;
+    }
+
+    /**
      * @param  float $latitude
      * @return self
      */
@@ -231,5 +398,23 @@ class Country
     public function getLongitude()
     {
         return $this->longitude;
+    }
+
+    /**
+     * @param  int $area
+     * @return self
+     */
+    public function setArea($area)
+    {
+        $this->area = (int) $area;
+        return $this;
+    }
+
+    /**
+     * @return int
+     */
+    public function getArea()
+    {
+        return $this->area;
     }
 }

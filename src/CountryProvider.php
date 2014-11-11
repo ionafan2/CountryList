@@ -44,15 +44,20 @@ class CountryProvider implements CountryProviderInterface
         $country
             ->setCommonName($data['name']['common'])
             ->setOfficialName($data['name']['official'])
+            ->setTopLevelDomains($data['tld'])
+            ->setCurrencies($data['currency'])
             ->setRegion($data['region'])
+            ->setSubRegion($data['subregion'])
             ->setIsoCodeNumeric($data['ccn3'])
             ->setIsoCodeAlpha2($data['cca2'])
             ->setIsoCodeAlpha3($data['cca3'])
-            ->setCapital($data['capital']);
+            ->setCallingCodes($data['callingCode'])
+            ->setCapital($data['capital'])
+            ->setNativeLanguage($data['nativeLanguage'])
+            ->setLanguages($data['languages'])
+            ->setDemonym($data['demonym'])
+            ->setArea($data['area']);
 
-        if (is_array($data['currency']) && !empty($data['currency'])) {
-            $country->setCurrency($data['currency'][0]);
-        }
         if (is_array($data['latlng']) && !empty($data['latlng'])) {
             $country
                 ->setLatitude($data['latlng'][0])
