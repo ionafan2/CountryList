@@ -11,7 +11,11 @@
     },
     "autoload": {
         "psr-4": {
-            "Nxw\\CountryList\\": "src/",
+            "Nxw\\CountryList\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
             "NxwTest\\CountryList\\": "tests/"
         }
     }
